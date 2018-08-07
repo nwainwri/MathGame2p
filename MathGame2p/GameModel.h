@@ -19,8 +19,8 @@
 
 - (NSString *)getCurrentQuestionString;
 
--(void)getUserAnswer:(int)userAnswer;
+-(BOOL)getUserAnswer:(int)userAnswer;
 
--(BOOL)checkEnteredAnswer;
+//-(BOOL)checkEnteredAnswer;
 
 @end

@@ -35,13 +35,14 @@
 
 }
 
--(void)getUserAnswer:(int)userAnswer{
-    [_currentQuestion validateAnswer:userAnswer];
+-(BOOL)getUserAnswer:(int)userAnswer{
+    return [self.currentQuestion validateAnswer:userAnswer];
 }
 
--(BOOL)checkEnteredAnswer{
-    [_currentQuestion validateAnswer:<#(int)#>];
-}
+//-(BOOL)checkEnteredAnswer{
+//    //[_currentQuestion validateAnswer:a];
+//    return YES;
+//}
 
 
 @end

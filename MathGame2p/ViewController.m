@@ -35,11 +35,11 @@
     
     
     
-    if ([_currentGame getUserAnswer:self.checkAnswer] == TRUE){
-        self.playerOneScore.text = @"1";
-    }
-        
-        
+//    if ([_currentGame getUserAnswer:self.checkAnswer] == TRUE){
+//        self.playerOneScore.text = @"1";
+//    }
+//
+    
     
 }
 
@@ -55,7 +55,7 @@
 }
 
 - (IBAction)buttonEnterPressed:(UIButton *)sender {
-    [_currentGame getUserAnswer:self.checkAnswer];
+    [self.currentGame getUserAnswer:self.checkAnswer];
     _questionAnswerBox.text = @"";
 }
 
