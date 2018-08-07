@@ -10,4 +10,39 @@
 
 @implementation PlayerModel
 
+- (instancetype)initWithName:(NSString *)named
+{
+    self = [super init];
+    if (self) {
+        _life = 3;
+        _score = 0;
+        _name = named;
+    }
+    return self;
+}
+
+-(void)scoreKeeper:(BOOL)valid{
+    if (valid == YES){
+        self.score += 1;
+    } else self.score -= 1;
+    
+}
+
+-(void)lifeTracker:(BOOL)valid{
+    if (valid == NO){
+        self.life -= 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 @end
+
+

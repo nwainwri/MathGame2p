@@ -7,9 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@class PlayerModel;
+@class Question;
 
 @interface GameModel : NSObject
 
+@property BOOL currentPlayer;
+@property PlayerModel* playerOne;
+@property PlayerModel* playerTwo;
+@property Question *currentQuestion;
 
+- (NSString *)getCurrentQuestionString;
+
+-(void)getUserAnswer:(int)userAnswer;
+
+-(BOOL)checkEnteredAnswer;
 
 @end

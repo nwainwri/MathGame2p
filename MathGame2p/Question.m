@@ -8,6 +8,28 @@
 
 #import "Question.h"
 
+
 @implementation Question
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        int a = arc4random_uniform(9) + 1;
+        int b = arc4random_uniform(9) + 1;
+        self.question = [NSString stringWithFormat:@" %i add %i = ? ", a, b];
+        self.answer = a + b;
+    }
+    return self;
+}
+
+
+
+-(BOOL)validateAnswer:(int)userAnswer{
+    if (userAnswer == _answer){
+        return YES;
+    } else return NO;
+}
 
 @end

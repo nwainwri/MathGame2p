@@ -10,4 +10,9 @@
 
 @interface Question : NSObject
 
+@property NSString *question;
+@property int answer;
+
+-(BOOL)validateAnswer:(int)userAnswer;
+
 @end

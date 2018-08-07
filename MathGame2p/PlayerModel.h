@@ -10,10 +10,14 @@
 
 @interface PlayerModel : NSObject
 
-@property int playerLife;
-@property int playerScore;
+@property int life;
+@property int score;
+@property NSString *name;
 
+- (instancetype)initWithName:(NSString *)named;
 
+-(void)scoreKeeper:(BOOL)valid;
 
+-(void)lifeTracker:(BOOL)valid;
 
 @end
