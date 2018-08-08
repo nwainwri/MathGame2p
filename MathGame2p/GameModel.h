@@ -18,7 +18,7 @@
 @property Question *currentQuestion;
 @property BOOL answer;
 
-- (NSString *)getCurrentQuestionString;
+-(NSString *)getCurrentQuestionString;
 
 -(BOOL)getUserAnswer:(int)userAnswer;
 

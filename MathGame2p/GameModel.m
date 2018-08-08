@@ -42,7 +42,7 @@
 -(BOOL)getUserAnswer:(int)userAnswer{
     self.answer = [self.currentQuestion validateAnswer:userAnswer];
     self.currentPlayer ? [self.playerOne scoreKeeper:self.answer] : [self.playerTwo scoreKeeper:self.answer];
-    // if current is tru... do first part... if false... do second
+    // if current is tru... do first part... if false... do second LEARNED FROM SEAN THE TA
     self.currentPlayer ? [self.playerOne lifeTracker:self.answer] : [self.playerTwo lifeTracker:self.answer];
     return self.answer;
 }
@@ -53,6 +53,12 @@
 }
 
 -(NSString *)getFormatLife{
+    if (self.playerOne.life < 0 ){
+        return [NSString stringWithFormat:@"Player Two Wins"];
+    }
+    if (self.playerTwo.life < 0){
+        return [NSString stringWithFormat:@"Player One Wins"];
+    }
     return  [NSString stringWithFormat:@"P1 %d : P2 %d ", self.playerOne.life, self.playerTwo.life];
     
 }

@@ -92,7 +92,6 @@
     }
 }
 
-
 - (IBAction)buttonEnterPressed:(UIButton *)sender {
     if ([self.currentGame getUserAnswer:self.checkAnswer]){
 //        self.questionAnswerBox.text = @"YES";
@@ -111,6 +110,8 @@
     self.playerOneScore.text = [_currentGame getFormatScore];
     self.playerOneLife.text = [_currentGame getFormatLife];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
