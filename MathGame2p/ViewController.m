@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "GameModel.h"
 
-
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *playerAndQuestion;
 @property (weak, nonatomic) IBOutlet UILabel *playerOneLife;
@@ -29,55 +28,78 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     _currentGame = [[GameModel alloc] init];
     self.playerAndQuestion.text = [_currentGame getCurrentQuestionString];
-    
-    
     
 //    if ([_currentGame getUserAnswer:self.checkAnswer] == TRUE){
 //        self.playerOneScore.text = @"1";
 //    }
 //
     
-    
 }
 
 - (IBAction)buttonZero:(UIButton *)sender {
     self.checkAnswer = 0;
-    if ([_questionAnswerBox isEqual:@""]){
-        _questionAnswerBox.text=(@"0");
-        self.checkAnswer = [_questionAnswerBox.text integerValue];
+    if ([self.questionAnswerBox isEqual:@""]){
+        self.questionAnswerBox.text=(@"0");
+        self.checkAnswer = [self.questionAnswerBox.text integerValue];
     } else {
-        _questionAnswerBox.text = [_questionAnswerBox.text stringByAppendingString:@"0"];
-        self.checkAnswer = [_questionAnswerBox.text integerValue];
+        self.questionAnswerBox.text = [self.questionAnswerBox.text stringByAppendingString:@"0"];
+        self.checkAnswer = [self.questionAnswerBox.text integerValue];
     }
 }
 
-- (IBAction)buttonEnterPressed:(UIButton *)sender {
-    [self.currentGame getUserAnswer:self.checkAnswer];
-    _questionAnswerBox.text = @"";
+- (IBAction)buttonOnePressed:(UIButton *)sender {
 }
 
+- (IBAction)buttonTwoPressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonThreePressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedFour:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedFive:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedSix:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedSeven:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedEight:(UIButton *)sender {
+}
+
+- (IBAction)buttonPressedNine:(UIButton *)sender {
+}
+
+
+
+
+
+
+
+
+
+
+- (IBAction)buttonEnterPressed:(UIButton *)sender {
+    if ([self.currentGame getUserAnswer:self.checkAnswer] == NO){
+        self.questionAnswerBox.text = @"YES";
+    };
+    //self.questionAnswerBox.text = @"";
+}
 
 
 - (IBAction)buttonEnter:(UIButton *)sender {
     
 }
 
-
-
-
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end
