@@ -32,4 +32,13 @@
     } else return NO;
 }
 
+-(void)generateNewQuestion{
+    
+    int a = arc4random_uniform(9) + 1;
+    int b = arc4random_uniform(9) + 1;
+    self.question = [NSString stringWithFormat:@" %i add %i = ? ", a, b];
+    self.answer = a + b;
+    //return self.question;
+}
+
 @end

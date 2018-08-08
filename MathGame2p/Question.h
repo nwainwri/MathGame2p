@@ -15,4 +15,6 @@
 
 -(BOOL)validateAnswer:(int)userAnswer;
 
+-(void)generateNewQuestion;
+
 @end

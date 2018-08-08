@@ -24,25 +24,38 @@
     return self;
 }
 
+-(NSString *)getNextQuestion{
+    self.currentPlayer = !self.currentPlayer;
+    [self.currentQuestion generateNewQuestion];
+    return [self getCurrentQuestionString];
+}
 
 
 - (NSString *)getCurrentQuestionString{
-    if (_currentPlayer == YES){
+    if (self.currentPlayer == YES){
         //set to player 1 and generate question, return that
-        return [NSString stringWithFormat:@" %@ : %@ ", _playerOne.name, _currentQuestion.question];
+        return [NSString stringWithFormat:@" %@ : %@ ", self.playerOne.name, self.currentQuestion.question];
 
-    } else return [NSString stringWithFormat:@" %@ : %@ ", _playerTwo.name, _currentQuestion.question];
-
+    } else return [NSString stringWithFormat:@" %@ : %@ ", self.playerTwo.name, self.currentQuestion.question];
 }
 
 -(BOOL)getUserAnswer:(int)userAnswer{
-    return [self.currentQuestion validateAnswer:userAnswer];
+    self.answer = [self.currentQuestion validateAnswer:userAnswer];
+    self.currentPlayer ? [self.playerOne scoreKeeper:self.answer] : [self.playerTwo scoreKeeper:self.answer];
+    // if current is tru... do first part... if false... do second
+    self.currentPlayer ? [self.playerOne lifeTracker:self.answer] : [self.playerTwo lifeTracker:self.answer];
+    return self.answer;
 }
 
-//-(BOOL)checkEnteredAnswer{
-//    //[_currentQuestion validateAnswer:a];
-//    return YES;
-//}
+
+-(NSString *)getFormatScore{
+    return  [NSString stringWithFormat:@"P1 %d : P2 %d ", self.playerOne.score, self.playerTwo.score];
+}
+
+-(NSString *)getFormatLife{
+    return  [NSString stringWithFormat:@"P1 %d : P2 %d ", self.playerOne.life, self.playerTwo.life];
+    
+}
 
 
 @end

@@ -16,11 +16,18 @@
 @property PlayerModel* playerOne;
 @property PlayerModel* playerTwo;
 @property Question *currentQuestion;
+@property BOOL answer;
 
 - (NSString *)getCurrentQuestionString;
 
 -(BOOL)getUserAnswer:(int)userAnswer;
 
-//-(BOOL)checkEnteredAnswer;
+-(NSString *)getNextQuestion;
+
+-(NSString *)getFormatScore;
+
+-(NSString *)getFormatLife;
+
+
 
 @end
